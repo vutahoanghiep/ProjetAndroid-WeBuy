@@ -25,7 +25,6 @@ public class MagasinsAdapter extends BaseAdapter{
         this.context = context;
         this.listMagasin = listMagasin;
         layoutInflater = LayoutInflater.from(context);
-
     }
 
     @Override
@@ -52,7 +51,7 @@ public class MagasinsAdapter extends BaseAdapter{
             viewHolder.logoMagasinView = (ImageView) convertView.findViewById(R.id.imageViewLogoMagasin);
             viewHolder.nomMagasinView = (TextView) convertView.findViewById(R.id.textViewNomMagasin);
             viewHolder.adresseMagasinView = (TextView) convertView.findViewById(R.id.textViewAdresseMagasin);
-//            viewHolder.nombrePromosView = (TextView) convertView.findViewById(R.id.textViewNombrePromotions);
+            viewHolder.nombrePromosView = (TextView) convertView.findViewById(R.id.textViewNombrePromotions);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (MagasinViewHolder) convertView.getTag();
@@ -60,26 +59,24 @@ public class MagasinsAdapter extends BaseAdapter{
 
         Magasin magasin = this.listMagasin.get(position);
         viewHolder.nomMagasinView.setText(magasin.getNomMagasin());
-        viewHolder.adresseMagasinView.setText(magasin.getAdresseMagasin());
-//        viewHolder.nombrePromosView.setText(magasin.getNombrePromos());
+        viewHolder.adresseMagasinView.setText(context.getString(R.string.textViewLabelAdresse) + magasin.getAdresseMagasin());
+        viewHolder.nombrePromosView.setText(context.getString(R.string.textViewLabelPromos) + String.valueOf(magasin.getNombrePromos()));
 
         int imageId = this.getLogoId(magasin.getNomLogo());
         viewHolder.logoMagasinView.setImageResource(imageId);
         return convertView;
     }
 
-    public int getLogoId(String nomLogo) {
+    private int getLogoId(String nomLogo) {
         String nomPackage = context.getPackageName();
         int resId = context.getResources().getIdentifier(nomLogo,"mipmap",nomPackage);
         return resId;
     }
 
-
-
-    class MagasinViewHolder {
-        public ImageView logoMagasinView;
-        public TextView nomMagasinView;
-        public TextView adresseMagasinView;
-        public TextView nombrePromosView;
+    private class MagasinViewHolder {
+        private ImageView logoMagasinView;
+        private TextView nomMagasinView;
+        private TextView adresseMagasinView;
+        private TextView nombrePromosView;
     }
 }

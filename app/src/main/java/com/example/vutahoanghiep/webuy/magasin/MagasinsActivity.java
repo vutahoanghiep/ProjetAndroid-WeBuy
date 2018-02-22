@@ -24,6 +24,7 @@ public class MagasinsActivity extends AppCompatActivity {
 
     }
 
+    // creer une liste des magasins
     private List<Magasin> getMagasin() {
         List<Magasin> list = new ArrayList<>();
         Magasin Carrefour1 = new Magasin("carrefour","Carrefour","1 rue Moreau 45000 Orléans",10);

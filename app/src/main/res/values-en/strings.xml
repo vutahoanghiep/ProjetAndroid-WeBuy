@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WeBuy</string>
+    <string name="textViewLabelAdresse">Address:</string>
+    <string name="textViewLabelPromos">Special offers:</string>
+</resources>
